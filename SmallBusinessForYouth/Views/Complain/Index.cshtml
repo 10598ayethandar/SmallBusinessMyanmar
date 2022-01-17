@@ -1,0 +1,69 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<SmallBusinessForYouth.Models.Complain>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                @Html.ActionLink("Create New", "Create", FormMethod.Post, new { enctype = "multipart-data" })
+            </div>
+            <div class="col-sm-8">
+                @using (Html.BeginForm("Index", "Complain", FormMethod.Get))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="input-group pull-right">
+                        @Html.TextBox("search", null, new { placeholder = "Search" })
+                        <span class="input-group-prepend">
+                            <button class="btn btn-primary" type="submit">Search</button>
+                        </span>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().C_Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().C_Text)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.C_Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.C_Text)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ComplainId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ComplainId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ComplainId })
+            </td>
+        </tr>
+    }
+
+</table>
+<center><p>@Html.PagedListPager(Model, page => Url.Action("Index", new { page, search = Request.QueryString["search"] }))</p></center>

@@ -1,0 +1,81 @@
+﻿@model SmallBusinessForYouth.Models.Product
+
+@{
+    ViewBag.Title = "ProductDelete";
+}
+
+<h2>ProductDelete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Owner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Owner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image_Path)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image_Path)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Catagories)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Catagories)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AQty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AQty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    { 
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        @Html.ActionLink("Back to List", "AdminProduct")
+    </div>
+    }
+</div>

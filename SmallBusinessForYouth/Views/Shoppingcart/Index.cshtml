@@ -1,0 +1,62 @@
+﻿@using SmallBusinessForYouth.Models
+
+@{
+    ViewBag.Title = "Index";
+}
+    <html>
+    
+    <body>
+        <div class="container">
+            <h1>Cart Page</h1>
+            <table class="table table-striped">
+                <tr>
+                    <th>Option</th>
+                    <th>Product Id</th>
+                    <th>Name</th>
+                    <th>Photo</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Sub Total</th>
+                </tr>
+                @foreach (Order_Detail order in (List<Order_Detail>)Session["cart"])
+                {
+            <tr>
+                <td>
+                    <a href="@Url.Action("Remove","Shoppingcart",new { id=order.Product.PId})"
+                       class="btn btn-danger">Remove</a>
+                </td>
+                <td>@order.Product.PId</td>
+                <td>@order.Product.Name</td>
+                <td><img src="@Url.Content(order.Product.Image_Path)" class="img-circle" style="width:100px;height:100px;" /></td>
+                <td>@order.Product.Price</td>
+                <td>@order.Qty</td>
+                <td>@(order.Product.Price * order.Qty)</td>
+            </tr>
+                }
+                <tr>
+                    <td align="right" colspan="6">Total</td>
+                    <td>
+                        @{
+                            List<Order_Detail> cart = (List<Order_Detail>)Session["cart"];
+                            var total = cart.Sum(order => order.Product.Price * order.Qty);
+                        }
+                        @total
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" colspan="6">Special Note For Product</td>
+                   <td><textarea rows="5" cols="50">
+                          @{ 
+                              Order_Detail special = new Order_Detail();   
+                           }
+                           @special.Special_Note
+                   </textarea></td> 
+                </tr>
+            </table>
+            <br />
+            <a href="@Url.Action("ProductList","Products")" class="btn btn-info">Continue Ordering<span class="glyphicon glyphicon-shopping-cart"></span></a>
+            <a href="@Url.Action("Payment","Payment")" class="btn btn-info" style="float:right">Finish Order<span class="glyphicon glyphicon-shopping-cart"></span></a>
+        </div>
+        
+    </body>
+    </html>

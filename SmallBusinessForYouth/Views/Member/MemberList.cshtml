@@ -1,0 +1,48 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<SmallBusinessForYouth.Models.Member>
+
+@{
+    ViewBag.Title = "MemberList";
+}
+
+<h2><span class="glyphicon glyphicon-list" style="font-size:30px;margin:30px"></span>MemberList</h2>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-8">
+            @using (Html.BeginForm("MemberList", "Member", FormMethod.Get))
+            {
+                @Html.AntiForgeryToken()
+                <div class="input-group pull-right">
+                    @Html.TextBox("search", null, new { placeholder = "Search" })
+                    <span class="input-group-prepend">
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </span>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<hr />
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-3" style="padding:30px">
+                <img src="@Url.Content(item.ImagePath)" class="img-thumbnail" style="width:150px;height:150px" />
+                <br /><hr />
+                @Html.DisplayName("အမည်"):
+                @Html.DisplayFor(modelItem => item.UName)<br />
+                @Html.DisplayName("အီးမေး(လ်)"):
+                @Html.DisplayFor(modelItem => item.Email)<br /><hr />
+                <a href="@Url.Action("Buy","Shoppingcart",new { id=item.MId})" class="btn btn-info">Contact Now</a>
+            </div>
+        }
+    </div>
+</div>
+<center><p>@Html.PagedListPager(Model, page => Url.Action("MemberList", new { page, search = Request.QueryString["search"] }))</p></center>

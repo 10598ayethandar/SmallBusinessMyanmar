@@ -1,0 +1,92 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<SmallBusinessForYouth.Models.Member>
+
+@{
+                ViewBag.Title = "AdminMember";
+}
+
+<h2>List of Member</h2>
+
+<p>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-8">
+                @using (Html.BeginForm("AdminMember", "Admin", FormMethod.Get))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="input-group pull-right">
+                        @Html.TextBox("search", null, new { placeholder = "Search" })
+                        <span class="input-group-prepend">
+                            <button class="btn btn-primary" type="submit">Search</button>
+                        </span>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().UName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().NRC_No)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().ImagePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Phone_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Email)
+        </th>
+        <th>
+            ...
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NRC_No)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImagePath)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            ...
+            <td>
+
+                @Html.ActionLink("Details", "MemberDetails", new { id = item.MId }) |
+                @Html.ActionLink("Delete", "MemberDelete", new { id = item.MId })
+            </td>
+        </tr>
+    }
+
+</table>
+<center><p>@Html.PagedListPager(Model, page => Url.Action("AdminMember", new { page, search = Request.QueryString["search"] }))</p></center>

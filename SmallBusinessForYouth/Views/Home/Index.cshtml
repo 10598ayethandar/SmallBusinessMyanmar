@@ -1,0 +1,190 @@
+﻿@{
+
+    ViewBag.Title = "Home Page";
+}
+    <body style="background-color:lightgray">
+        <br />
+        <div class="container">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="@Url.Content("~/Image/slide.JPG")" alt="aa" style="width:100%;">
+                    </div>
+
+                    <div class="item">
+                        <img src="@Url.Content("~/Image/slide2.JPG")" alt="ss" style="width:100%;">
+                    </div>
+                    <div class="item">
+                        <img src="@Url.Content("~/Image/slide3.JPG")" alt="gg" style="width:100%;">
+                    </div>
+                    <div class="item">
+                        <img src="@Url.Content("~/Image/slide4.JPG")" alt="gg" style="width:100%;">
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Page Content -->
+        <div class="container">
+
+            <!-- Portfolio Item Heading -->
+            <h2 style="color:#152238">
+                <i>ကိုယ်ပိုင်အသေးစားလုပ်ငန်းများကိုစတင်လိုက်ပါ</i>
+                <small style="color:seagreen;">အမြဲကြိုဆိုလျက်ပါ</small>
+            </h2>
+            <br />
+            <!-- Portfolio Item Row -->
+            <div class="row">
+
+                <div class="col-md-8">
+                    <img class="img-fluid" src="@Url.Content("~/Image/image1.jpg")" alt="aa">&nbsp;&nbsp;
+                    <img class="img-fluid" src="@Url.Content("~/Image/image2.jpg")" alt="bb"><br /><br />
+                    <img class="img-fluid" src="@Url.Content("~/Image/image4.jpg")" alt="cc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img class="img-fluid" src="@Url.Content("~/Image/image6.jpg")" alt="cc">
+                </div>
+                <br />
+                <div class="col-md-4">
+                    <h3 class="my-3" style="color:orangered">ရိုးရာထုတ်ကုန်များ</h3>
+                    <p>
+                        ရိုးရာထုတ်ကုန်ဆိုသည်မှာနိုင်ငံတိုင်းအတွက်အရေးကြီးသောထုတ်ကုန်များဖြစ်သည်။ထိန်းသိမ်းရန်လဲအလွန်ပင်လိုအပ်သည်။
+                        ထို့ကြောင့်ဆန်းသစ်တီထွင်နိုင်ရန်အရေးကြီးလှသည်။ထိုသို့တီထွင်ဆန်းသစ်ထုတ်လုပ်ရာတွငိလိုအပ်သောအရည်းအနှီးများအတွက်
+                        ကျွန်တော်တို့ရဲ့ဝက်ဆိုက်(လ်)..........&nbsp;&nbsp;
+                    </p>@Html.ActionLink("ပိုမိုသိရှိရန် >>", "Register", "Member")
+                    <h3 class="my-3" style="color:darkblue;">ကျော်ကြားသောရိုးရာလုပ်ငန်းများ</h3>
+                    <ul>
+                        <li>ရိုးရာထီးလုပ်ငန်း</li>
+                        <li>ရိုးရာစက္ကူလုပ်ငန်း</li>
+                        <li>ရိုးရာအထည်လုပ်ငန်း</li>
+                        <li>တိုင်းရင်းသားရိုးရာလုပ်ငန်း</li>
+                        <li>@Html.ActionLink("ပိုမိုသိရှိရန် >>", "Register", "Member")</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- /.row -->
+            <!-- Related Projects Row -->
+            <h3 class="my-4" style="color:purple">ထုတ်ကုန်များ</h3>
+
+            <div class="row">
+
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <a href="~/Image/acc1.png">
+                        <img class="img-fluid" src="@Url.Content("~/Image/handmade5.png")" alt="s1" style="width:250px;height:250px;">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <a href="~/Image/art1.jpg">
+                        <img class="img-fluid" src="@Url.Content("~/Image/art1.jpg")" alt="s3" style="width:250px;height:250px;">
+                    </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <a href="~/Image/handmade1.jpg">
+                        <img class="img-fluid" src="@Url.Content("~/Image/handmade4.png")" alt="s4" style="width:250px;height:250px;">
+                    </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <a href="~/Image/image3.jpg">
+                        <img class="img-fluid" src="@Url.Content("~/Image/shoe3.jpg")" alt="s2" style="width:250px;height:250px;">
+                    </a>
+                </div>
+
+                
+            </div>
+            <br />
+            <!-- /.row -->
+            <div class="container">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" style="background-color:#152238;overflow:auto;">
+                        <div class="item active">
+                            <div>
+                                <img src="~/Image/fb1.png" alt="me" style="margin:25px;float:left;border-radius:50%;width:130px;height:130px;" />
+                                <div style="text-align:center;margin:5px;padding-top:20px;color:white">
+
+                                    ကျွန်မရဲ့ကိုယ်ပိုင်ဖိနပ်brandလေးတစ်ခုကိုကြိုးစားပြီးထုတ်ခဲ့ပါတယ်။<br>အရမ်းရောင်းရလိမ့်မယ်လို့မမျှော်လင့်ခဲ့ပါဘူး။<br>ဒါပေမယ့်ရင်းနှီး
+                                    မြှပ်နှံမယ့်
+                                    ကုမ္ပဏီတစ်ခုပါပေါ်လာခဲ့ပါတယ်။နောက်brandတွေလဲSBMနဲ့လက်တွဲသွားပါအုံးမယ်။
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div>
+                                <img src="~/Image/fb2.png" alt="me" style="margin:25px;float:left;border-radius:50%;width:130px;height:130px;" />
+                                <div style="text-align:center;margin:5px;padding-top:20px;color:white">
+                                    ကိုယ်ပိုင်စီးပွားရေးလုပ်ချင်ပြီး၊ အရင်းအနှီးမတတ်နိုင်တဲ့လူငယ်လုပ်ငန်းများအတွက်အလွန်ကောင်းမွန်သောဝက်ဆိုက်(လ်)လေးဖြစ်ပါတယ်။<br />
+                                    ကိုယ့်ရဲ့ရိုးရာပစ္စည်းများကိုဆန်းသစ်တီထွင်ထုတ်လုပ်ထားသောလူငယ်များကိုလဲတစ်နေရာထဲမှာတွေ့ရပါတယ်။<br />
+                                    ဆက်လက်ပြီးအဖွဲ့ဝင်ဖြစ်နေပါမယ်။
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div>
+                                <img src="~/Image/fb3.png" alt="me" style="margin:25px;float:left;border-radius:50%;width:130px;height:130px;" />
+                                <div style="text-align:center;margin:5px;padding-top:20px;color:white">
+                                    ဆန်းသစ်သောdesignများကိုရှာဖွေနေတဲ့ဝန်ထမ်းတစ်ယောက်ပါ။<br />
+                                    companyက‌နေdesignသစ်တွေရှာခိုင်းရင်ဒီဝက်ဆိုက်(လ်)ရဲ့လုပ်ငန်းပညာရှင်များနဲ့ဘဲလက်တွဲဖြစ်ပါတယ်။<br />
+                                    ဆက်လက်ပြီးလဲ......................
+
+                                    <br><br><br><br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div>
+                                <img src="~/Image/fb4.jpeg" alt="me" style="margin:25px;float:left;border-radius:50%;width:130px;height:130px;" />
+                                <div style="text-align:center;margin:5px;padding-top:20px;color:white">
+
+                                    ကျွန်မရဲ့ကိုယ်ပိုင်ရိုးရာbrandလေးတစ်ခုကိုကြိုးစားပြီးထုတ်ခဲ့ပါတယ်။<br>ကိုယ့်တိုင်းရင်းသားဝတ်စုံတွေကိုဆန်းသစ်ပြီးရောင်းချ
+                                    ချင်းခဲ့ပါတယ်။<br>ရင်းနှီး
+                                    မြှပ်နှံမယ့်
+                                    ကုမ္ပဏီတစ်ခုပါပေါ်လာခဲ့လို့အရမ်းပျော်ခဲ့ပါတယ်။<br />နောက်brandတွေလဲSBMနဲ့လက်တွဲသွားပါအုံးမယ်။
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+            <br />
+        </div>
+        <!-- /.container -->
+        <br />
+
+    </body>

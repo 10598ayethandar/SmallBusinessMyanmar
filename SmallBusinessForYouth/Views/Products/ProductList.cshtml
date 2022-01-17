@@ -1,0 +1,56 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<SmallBusinessForYouth.Models.Product>
+@{
+
+    ViewBag.Title = "ProductList";
+}
+
+
+<h2><span class="glyphicon glyphicon-list" style="font-size:30px;margin:30px"></span>ProductList</h2>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-8">
+            @using (Html.BeginForm("ProductList", "Products", FormMethod.Get))
+            {
+                @Html.AntiForgeryToken()
+                <div class="input-group pull-right">
+                    @Html.TextBox("search", null, new { placeholder = "Search" })
+                    <span class="input-group-prepend">
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </span>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<hr />
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+        <div class="col-sm-3" style="padding:30px">
+            <img src="@Url.Content(item.Image_Path)" class="img-thumbnail" style="width:150px;height:150px" />
+            <br /><hr />
+            @Html.DisplayName("ထုတ်ကုန်အမည်"):
+            @Html.DisplayFor(modelItem => item.Name)<br /><br />
+            @Html.DisplayName("ထုတ်ကုန်ဈေးနှုန်း"):
+            @Html.DisplayFor(modelItem => item.Price)<span>&nbsp;ကျပ်</span><br /><br />
+            @Html.DisplayName("ရရှိနိုင်သောအရေအတွက်"):
+            @Html.DisplayFor(modelItem => item.AQty)<br /><br />
+            @Html.DisplayName("အခြားမှတ်ချက်"):
+            @Html.DisplayFor(modelItem => item.Description)<br /><br /> <hr />
+            <a href="@Url.Action("Buy","Shoppingcart",new { id=item.PId})" class="btn btn-info">Buy Now</a>&nbsp;&nbsp;
+            <a href="@Url.Action("Create","SpecialOrder",new { id=item.PId})" class="btn btn-default">Special Order</a>
+
+        </div>
+        }
+    </div>
+</div>
+<center><p>@Html.PagedListPager(Model, page => Url.Action("ProductList", new { page, search = Request.QueryString["search"] }))</p></center>
+

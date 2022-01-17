@@ -1,0 +1,139 @@
+﻿@if (Session["count"] == null)
+{
+    Session["count"] = 0;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title-SBM (Small Business Myanmar)</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+    </style>
+</head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#1f456e;margin:10px;">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("SBM-Small Business Myanmar", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse" style="color:white;">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("ပင်မစာမျက်နှာ", "Index", "Home")</li>
+                    <li>@Html.ActionLink("မြှုပ်နှံရန်", "ProductListForCompany", "Products")</li>
+                    <li>@Html.ActionLink("ထုတ်ကုန်များ", "ProductList", "Products")</li>
+                    <li>@Html.ActionLink("အဖွဲဝင်များ", "MemberList", "Products")</li>
+                    <li>@Html.ActionLink("အဖွဲ့ဝင်ရန်", "Register", "Member")</li>
+                    <li>@Html.ActionLink("သင့်အကောင့်", "Index", "Member")</li>
+                    <li>@Html.ActionLink("Login", "Login", "Admin")</li>
+                    <li>
+                        <a href="@Url.Action("Index","Shoppingcart")">
+                            <span class="glyphicon glyphicon-shopping-cart" style="font-size:15px;color:white;"></span><span class="badge">@Session["count"]</span>
+
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    @RenderBody()
+
+
+    <div style="background-color:#1f456e;color:black;margin:25px;font-weight:bold;height:30px;text-align:center;padding:10px;">
+        Call Us &nbsp; &raquo; &nbsp; +95 9 777-413-708
+    </div>
+
+    <div class="container" style="background-color:#152230;">
+        <section style="height:80px;"></section>
+        <div class="row" style="text-align:center;">
+            <h2></h2>
+        </div>
+        <!----------- Footer ------------>
+        <footer class="footer-bs">
+            <div class="row">
+                <div class="col-md-3 footer-brand animated fadeInLeft">
+                    <h2><img src="@Url.Content("~/Image/logo.jpg")" class="img-thumbnail" style="width:200px;height:200px;" /></h2>
+                    <p style="color:white;">
+                        SBM(Small Business Myanmar) is a local website for creative youth from Myanmar.
+                        Start your small business with low investment.
+                        show your creation to public.
+                    </p>
+
+                </div>
+                <div class="col-md-4 footer-nav animated fadeInUp" style="color:white">
+                    <h4>Catagories</h4>
+                    <div class="col-md-6">
+                        <ul class="pages">
+                            <li><a href="#">Handmade goods</a></li>
+                            <li><a href="#">Technological goods</a></li>
+                            <li><a href="#">Traditional goods</a></li>
+                            <li><a href="#">Accessories</a></li>
+                            <li><a href="#">Clothes</a></li>
+                            <li><a href="#">More &raquo;</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contacts</a></li>
+                            <li><a href="#">Terms & Condition</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2 footer-social animated fadeInDown">
+                    <h4 style="color:white;">Follow Us</h4>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-ns animated fadeInRight">
+                    <h4 style="color:white;">SBM</h4>
+                    <p style="color:white;">Your small business starts with us.</p>
+                    <p>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+
+        <hr />
+        <footer style="color:white;background-color:#152238;">
+            <p>&copy; @DateTime.Now.Year - SBM(Small Business Myanmar)</p>
+        </footer>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
